@@ -79,3 +79,23 @@ btnPrev.addEventListener('click', function() {
         
     });    
 
+
+// Ogni 3 secondi l'immagine cambia e verrà mostrata quella successiva;
+
+const clock = setInterval(autoPlay, 3000);
+
+function autoPlay() {
+     // aggiunga la classe d-none all'elemento che in partenza era visibile;
+     imageList[activeIndex].classList.add('d-none');
+        
+     //aumento il mio indice di 1;
+     activeIndex++;
+
+     //se il mio indice è identico alla lunghezza della lista;
+     if (activeIndex === imageList.length){
+         // allora il mio indice torna a 0;
+         activeIndex = 0;
+     }
+     //rimuovo la classe d-none all'elemento con indice incrementato;
+     imageList[activeIndex].classList.remove('d-none');
+}
